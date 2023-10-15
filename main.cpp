@@ -78,6 +78,8 @@ int main(void)
         bookshop.addBook(newAudioBook);
     }
 
+    cout << bookshop.noOfBooksAdded << endl;
+    
     // display message to being book listing
     cout << "\n| All Book Listings" << endl;
 

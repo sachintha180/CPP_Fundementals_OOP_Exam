@@ -26,7 +26,7 @@ public:
     void setAuthorName(string authorName);
 
     // other methods
-    void printDescription();
+    void virtual printDescription();
 
     // default Book destructor
     ~Book();

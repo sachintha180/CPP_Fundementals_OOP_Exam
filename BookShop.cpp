@@ -17,6 +17,7 @@ BookShop::BookShop()
 void BookShop::addBook(Book &book)
 {
     (&bookCollection)[BookShop::noOfBooksAdded] = &book;
+    (&bookCollection)[BookShop::noOfBooksAdded]->printDescription();
     BookShop::noOfBooksAdded++;
 }
 
@@ -25,6 +26,7 @@ void BookShop::addBook(Book &book)
 void BookShop::addBook(AudioBook &audioBook)
 {
     (&bookCollection)[BookShop::noOfBooksAdded] = &audioBook;
+    (&bookCollection)[BookShop::noOfBooksAdded]->printDescription();
     BookShop::noOfBooksAdded++;
 }
 
