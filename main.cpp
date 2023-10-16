@@ -18,7 +18,7 @@ int main(void)
 
     // display message to begin (normal) book entries
     cout << "\n| Normal Book Entries" << endl;
-    
+
     // add (normal) books to book shop
     for (int i = 0; i < bookCount; i++)
     {
@@ -26,11 +26,11 @@ int main(void)
         string bookTitle, bookAuthorName;
 
         // initialize new book
-        Book newBook;
+        Book *newBook = new Book();
 
         // get book title and author from user
         cout << "\n[Book " << i + 1 << "]" << endl;
-        
+
         cout << ">> Enter book title: ";
         getline(cin, bookTitle);
 
@@ -38,8 +38,8 @@ int main(void)
         getline(cin, bookAuthorName);
 
         // set input strings to book object
-        newBook.setTitle(bookTitle);
-        newBook.setAuthorName(bookAuthorName);
+        newBook->setTitle(bookTitle);
+        newBook->setAuthorName(bookAuthorName);
 
         // add book to bookshop
         bookshop.addBook(newBook);
@@ -55,11 +55,11 @@ int main(void)
         string audioBookTitle, audioBookAuthorName, audioBookVA;
 
         // initialize new audio book
-        AudioBook newAudioBook;
+        AudioBook *newAudioBook = new AudioBook();
 
         // get audio book title, author and voice actor from user
         cout << "\n[Audio Book " << i + 1 << "]" << endl;
-        
+
         cout << "Enter audio book title: ";
         getline(cin, audioBookTitle);
 
@@ -70,22 +70,20 @@ int main(void)
         getline(cin, audioBookVA);
 
         // set input strings to audio book object
-        newAudioBook.setTitle(audioBookTitle);
-        newAudioBook.setAuthorName(audioBookAuthorName);
-        newAudioBook.setVoiceActor(audioBookVA);
+        newAudioBook->setTitle(audioBookTitle);
+        newAudioBook->setAuthorName(audioBookAuthorName);
+        newAudioBook->setVoiceActor(audioBookVA);
 
         // add audio book to bookshop
         bookshop.addBook(newAudioBook);
     }
 
-    cout << bookshop.noOfBooksAdded << endl;
-    
     // display message to being book listing
-    cout << "\n| All Book Listings" << endl;
+    cout << "\n| All Book Listings\n\n";
 
     // display all books in bookshop
     for (int i = 0; i < BookShop::noOfBooksAdded; i++)
     {
-        (&bookshop.bookCollection)[i]->printDescription();
+        bookshop.bookCollection[i]->printDescription();
     }
 }

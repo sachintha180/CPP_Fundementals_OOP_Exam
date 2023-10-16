@@ -22,9 +22,7 @@ void AudioBook::setVoiceActor(string voiceActor)
 // to print out attributes of AudioBook
 void AudioBook::printDescription()
 {
-    cout << "AudioBook Details" << endl;
-    cout << "Title: " << title << " | Author: " << authorName << endl;
-    cout << "Author Book VA: " << voiceActor << endl;
+    cout << "[AudioBook] Title: " << title << " | Author: " << authorName << " | Author Book VA: " << voiceActor << endl;
 }
 
 // default destructor

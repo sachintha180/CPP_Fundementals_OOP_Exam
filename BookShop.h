@@ -11,15 +11,15 @@
 class BookShop
 {
 public:
-    Book *bookCollection;
+    Book **bookCollection;
     static int noOfBooksAdded;
 
     // default BookShop constructor
     BookShop();
 
     // other methods
-    void addBook(Book &book);
-    void addBook(AudioBook &audioBook);
+    void addBook(Book *book);
+    void addBook(AudioBook *audioBook);
 
     // default BookShop destructor
     ~BookShop();

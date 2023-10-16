@@ -9,29 +9,35 @@ int BookShop::noOfBooksAdded = 0;
 // constructor
 BookShop::BookShop()
 {
-    Book *bookCollection = new Book[MAX_BOOKS];
+    // creates an array of pointers to MAX_BOOKS Book objects
+    bookCollection = new Book *[MAX_BOOKS];
 };
 
 // (overloaded) addBook method
 // to add an object of Book class into bookCollection
-void BookShop::addBook(Book &book)
+void BookShop::addBook(Book *book)
 {
-    (&bookCollection)[BookShop::noOfBooksAdded] = &book;
-    (&bookCollection)[BookShop::noOfBooksAdded]->printDescription();
+    bookCollection[BookShop::noOfBooksAdded] = book;
     BookShop::noOfBooksAdded++;
 }
 
 // (overloaded) addBook method
 // to add an object of AudioBook class into bookCollection
-void BookShop::addBook(AudioBook &audioBook)
+void BookShop::addBook(AudioBook *audioBook)
 {
-    (&bookCollection)[BookShop::noOfBooksAdded] = &audioBook;
-    (&bookCollection)[BookShop::noOfBooksAdded]->printDescription();
+    bookCollection[BookShop::noOfBooksAdded] = audioBook;
     BookShop::noOfBooksAdded++;
 }
 
 // destructor
 BookShop::~BookShop()
 {
+    // free pointers to book / audio book objects
+    for (int i = 0; i < BookShop::noOfBooksAdded; i++)
+    {
+        delete bookCollection[i];
+    }
+
+    // free book object array
     delete[] bookCollection;
 };

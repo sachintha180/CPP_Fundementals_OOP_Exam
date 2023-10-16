@@ -7,7 +7,7 @@
 
 #include "Book.h"
 
-class AudioBook: public Book
+class AudioBook : public Book
 {
 private:
     string voiceActor;
@@ -23,10 +23,10 @@ public:
     void setVoiceActor(string voiceActor);
 
     // other methods
-    void printDescription();
-    
+    virtual void printDescription();
+
     // default AudioBook destructor
-    ~AudioBook();
+    virtual ~AudioBook();
 };
 
 #endif

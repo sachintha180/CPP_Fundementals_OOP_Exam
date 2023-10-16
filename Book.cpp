@@ -32,8 +32,7 @@ void Book::setAuthorName(string authorName)
 // to print out attributes of Book
 void Book::printDescription()
 {
-    cout << "Book Details" << endl;
-    cout << "Title: " << title << " | Author: " << authorName << endl;
+    cout << "[Book] Title: " << title << " | Author: " << authorName << endl;
 }
 
 // default destructor
